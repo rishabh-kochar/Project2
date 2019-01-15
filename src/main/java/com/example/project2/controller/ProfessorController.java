@@ -14,6 +14,7 @@ import java.util.List;
 Developed by Chaman
  */
 @RestController
+@RequestMapping("/professor")
 public class ProfessorController {
 
     @Autowired
