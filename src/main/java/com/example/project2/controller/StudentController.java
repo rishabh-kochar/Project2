@@ -40,4 +40,14 @@ public class StudentController {
     public void delete(@RequestParam String id) {
         studentService.delete(id);
     }
+
+    @RequestMapping(value = "/getCurrentSGPA",method = RequestMethod.GET)
+    public double getCurrentSGPA(@RequestParam String id){
+        return studentService.getCurrentSGPA(id);
+    }
+
+    @RequestMapping(value = "/getAggregateCGPA",method = RequestMethod.GET)
+    public double getAggregateCGPA(@RequestParam String id){
+        return studentService.getAggregateCGPA(id);
+    }
 }

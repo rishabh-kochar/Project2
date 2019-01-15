@@ -42,4 +42,13 @@ public class StudentServiceImpl implements StudentService {
             studentRepository.delete(id);
         }
 
+        @Override
+        public double getCurrentSGPA(String studentId) {
+                return studentRepository.findCurrentSGPA(studentId);
+        }
+
+        @Override
+        public double getAggregateCGPA(String studentId) {
+                return studentRepository.findAggregateCGPA(studentId);
+        }
 }

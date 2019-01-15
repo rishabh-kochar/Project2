@@ -75,6 +75,38 @@ public class Score{
         this.score = score;
     }
 
+    public static String getTableName() {
+        return TABLE_NAME;
+    }
+
+    public static String getIdColumn() {
+        return ID_COLUMN;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
     @Override
     public String toString() {
         return "Score{" +

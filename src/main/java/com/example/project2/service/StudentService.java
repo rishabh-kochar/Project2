@@ -9,4 +9,6 @@ public interface StudentService {
     Student select(String studentId);
     Student update(Student student);
     void delete(String studentId);
+    double getCurrentSGPA(String studentId);
+    double getAggregateCGPA(String studentId);
 }

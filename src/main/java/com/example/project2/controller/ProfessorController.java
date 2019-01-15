@@ -7,6 +7,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Developed by Chaman
  */
@@ -42,5 +45,22 @@ public class ProfessorController {
     @DeleteMapping("/deleteProfessor")
     public void deleteProfessor(@RequestParam String id){
         professorService.deleteProfessor(id);
+    }
+
+    @GetMapping("/getAllProfessorDetails")
+    public List<ProfessorDTO> getAllProfessorDetails(){
+
+
+        List<ProfessorDTO> professorDTOList=new ArrayList<>();
+        List<Professor> professorList=professorService.getAllProfessor();
+
+        for (Professor professor:
+             professorList) {
+            ProfessorDTO professorDTO = new ProfessorDTO();
+            BeanUtils.copyProperties(professor,professorDTO);
+            professorDTOList.add(professorDTO);
+        }
+
+        return professorDTOList;
     }
 }

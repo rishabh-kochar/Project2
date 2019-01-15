@@ -75,6 +75,30 @@ public class Student {
         this.cgpa = cgpa;
     }
 
+    public static String getTableName() {
+        return TABLE_NAME;
+    }
+
+    public static String getIdColumn() {
+        return ID_COLUMN;
+    }
+
+    public List<Score> getScoreList() {
+        return scoreList;
+    }
+
+    public void setScoreList(List<Score> scoreList) {
+        this.scoreList = scoreList;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

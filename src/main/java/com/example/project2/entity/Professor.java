@@ -28,6 +28,14 @@ public class Professor {
     @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Subject> subjectList=new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department")
+    private Department primaryDepartment;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department1")
+    private Department secondaryDepartment;
+
     public static String getTableName() {
         return TABLE_NAME;
     }
@@ -66,6 +74,30 @@ public class Professor {
 
     public void setSecondaryDeptId(String secondaryDeptId) {
         this.secondaryDeptId = secondaryDeptId;
+    }
+
+    public List<Subject> getSubjectList() {
+        return subjectList;
+    }
+
+    public void setSubjectList(List<Subject> subjectList) {
+        this.subjectList = subjectList;
+    }
+
+    public Department getPrimaryDepartment() {
+        return primaryDepartment;
+    }
+
+    public void setPrimaryDepartment(Department primaryDepartment) {
+        this.primaryDepartment = primaryDepartment;
+    }
+
+    public Department getSecondaryDepartment() {
+        return secondaryDepartment;
+    }
+
+    public void setSecondaryDepartment(Department secondaryDepartment) {
+        this.secondaryDepartment = secondaryDepartment;
     }
 
     @Override
