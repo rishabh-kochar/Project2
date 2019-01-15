@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /*
 Developed by Chaman
  */
@@ -24,9 +26,16 @@ public class DepartmentController  {
         departmentService.addDepartment(department);
     }
 
+    @GetMapping("/getAllDepartment")
+    public List<Department> getDepartment(){
+
+        return departmentService.departmentList();
+    }
+
     @GetMapping("/getDepartment")
-    public void getDepartment(@RequestParam String id){
-        departmentService.getDepartment(id);
+    public Department getDepartment(@RequestParam String id){
+
+        return departmentService.getDepartment(id);
     }
 
 

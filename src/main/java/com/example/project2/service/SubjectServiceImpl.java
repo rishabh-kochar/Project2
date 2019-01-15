@@ -37,4 +37,6 @@ public class SubjectServiceImpl  implements SubjectService{
     public void deleteSubject(String id) {
         subjectRepository.delete(id);
     }
+
+
 }

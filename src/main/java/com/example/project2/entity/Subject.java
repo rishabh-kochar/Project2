@@ -19,7 +19,7 @@ public class Subject {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid",strategy = "uuid2")
-    @Column(name = Department.ID_COLUMN)
+    @Column(name = Subject.ID_COLUMN)
     private String subjectId;
     private String subjectName;
     private int subjectCredits;
@@ -87,5 +87,13 @@ public class Subject {
                 ", subjectName='" + subjectName + '\'' +
                 ", subjectCredits=" + subjectCredits +
                 '}';
+    }
+
+    public List<Score> getScoreList() {
+        return scoreList;
+    }
+
+    public void setScoreList(List<Score> scoreList) {
+        this.scoreList = scoreList;
     }
 }

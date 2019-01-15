@@ -6,7 +6,7 @@ public class StudentDTO {
     private String studentName;
     private String departmentId;
     private String currentSemester;
-    private double cgpa;
+
 
     public String getStudentId() {
         return studentId;
@@ -40,22 +40,14 @@ public class StudentDTO {
         this.currentSemester = currentSemester;
     }
 
-    public double getCgpa() {
-        return cgpa;
-    }
-
-    public void setCgpa(double cgpa) {
-        this.cgpa = cgpa;
-    }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "StudentDTO{" +
                 "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", departmentId='" + departmentId + '\'' +
                 ", currentSemester='" + currentSemester + '\'' +
-                ", cgpa=" + cgpa +
                 '}';
     }
 }

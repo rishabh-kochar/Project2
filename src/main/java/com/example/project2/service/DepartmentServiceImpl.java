@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Developed by Chaman
  */
@@ -35,5 +38,15 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public void deleteDepartment(String id) {
         departmentRepository.delete(id);
+    }
+
+    @Override
+    public List<Department> departmentList() {
+
+        List<Department> departmentList = new ArrayList<>();
+        Iterable<Department> employeeIterable = departmentRepository.findAll();
+        employeeIterable.forEach(departmentList::add);
+        return departmentList;
+
     }
 }

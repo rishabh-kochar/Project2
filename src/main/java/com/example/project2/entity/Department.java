@@ -14,7 +14,7 @@ Developed by Chaman
 public class Department {
 
     public static final String TABLE_NAME="Department";
-    public static final String ID_COLUMN="Id";
+    public static final String ID_COLUMN="DEPARTMENTID";
 
 
     @Id
@@ -26,6 +26,12 @@ public class Department {
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Student> studentList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "primaryDepartment", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Professor> primaryProfessorList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "secondaryDepartment", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Professor> secondaryProfessorList = new ArrayList<>();
 
     public static String getTableName() {
         return TABLE_NAME;
@@ -49,6 +55,30 @@ public class Department {
 
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
+    public List<Professor> getPrimaryProfessorList() {
+        return primaryProfessorList;
+    }
+
+    public void setPrimaryProfessorList(List<Professor> primaryProfessorList) {
+        this.primaryProfessorList = primaryProfessorList;
+    }
+
+    public List<Professor> getSecondaryProfessorList() {
+        return secondaryProfessorList;
+    }
+
+    public void setSecondaryProfessorList(List<Professor> secondaryProfessorList) {
+        this.secondaryProfessorList = secondaryProfessorList;
     }
 
     @Override
