@@ -1,8 +1,8 @@
 package com.example.project2.controller;
 
-import com.example.Project2.dto.ProfessorDTO;
-import com.example.Project2.entity.Professor;
-import com.example.Project2.service.ProfessorService;
+import com.example.project2.dto.ProfessorDTO;
+import com.example.project2.entity.Professor;
+import com.example.project2.service.ProfessorService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

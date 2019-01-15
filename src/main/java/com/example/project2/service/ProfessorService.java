@@ -1,6 +1,6 @@
 package com.example.project2.service;
 
-import com.example.Project2.entity.Professor;
+import com.example.project2.entity.Professor;
 
 /*
 Developed by Chaman
