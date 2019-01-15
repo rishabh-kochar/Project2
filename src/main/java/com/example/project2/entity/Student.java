@@ -28,6 +28,11 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Score> scoreList = new ArrayList<>();
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department")
+    private Department department;
+
 //    private Score score;
 
     public String getStudentId() {

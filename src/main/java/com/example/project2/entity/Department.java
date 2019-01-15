@@ -3,6 +3,8 @@ package com.example.project2.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 Developed by Chaman
@@ -21,6 +23,9 @@ public class Department {
     @Column(name = Department.ID_COLUMN)
     private String departmentId;
     private String departmentName;
+
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Student> studentList = new ArrayList<>();
 
     public static String getTableName() {
         return TABLE_NAME;
