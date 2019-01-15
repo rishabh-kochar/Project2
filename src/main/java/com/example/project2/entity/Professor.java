@@ -26,7 +26,7 @@ public class Professor {
     private String secondaryDeptId;
 
     @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL,orphanRemoval = true)
-//    private List<Subject> subjectList=new ArrayList<>();
+    private List<Subject> subjectList=new ArrayList<>();
 
     public static String getTableName() {
         return TABLE_NAME;

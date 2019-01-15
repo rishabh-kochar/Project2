@@ -2,6 +2,8 @@ package com.example.project2.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = Score.TABLE_NAME)
@@ -15,6 +17,17 @@ public class Score{
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     @Column(name = Score.ID_COLUMN)
     private String Id;
+
+
+//    private List<Score> scoreList = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student")
+    private Student student;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "subject")
+    private Subject subject;
 
     private String studentId;
     private String semester;
