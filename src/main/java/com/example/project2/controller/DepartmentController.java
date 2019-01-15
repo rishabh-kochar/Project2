@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 Developed by Chaman
  */
 @RestController
+@RequestMapping("/department")
 public class DepartmentController  {
 
     @Autowired

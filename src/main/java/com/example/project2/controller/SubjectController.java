@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 Developed by Durgaprasad
  */
 @RestController
+@RequestMapping("/subject")
 public class SubjectController {
 
     @Autowired
