@@ -7,8 +7,8 @@ import javax.persistence.*;
 @Table(name = Score.TABLE_NAME)
 public class Score{
 
-    private static final String TABLE_NAME="score";
-    private static final String ID_COLUMN="Id";
+    public static final String TABLE_NAME="score";
+    public static final String ID_COLUMN="Id";
 
     @javax.persistence.Id
     @GeneratedValue(generator = "uuid")
