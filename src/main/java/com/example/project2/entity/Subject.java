@@ -3,6 +3,9 @@ package com.example.project2.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 Developed by DurgaPrasad
  */
@@ -25,6 +28,9 @@ public class Subject {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "professor")
     private Professor professor;
+
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Score> scoreList = new ArrayList<>();
 
     public static String getTableName() {
         return TABLE_NAME;

@@ -4,13 +4,15 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = Student.TABLE_NAME)
 public class Student {
 
     public static final String TABLE_NAME="STUDENT";
-    public static final String ID_COLUMN="Id";
+    public static final String ID_COLUMN="STUDENTId";
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -22,6 +24,11 @@ public class Student {
     private String departmentId;
     private String currentSemester;
     private double cgpa;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Score> scoreList = new ArrayList<>();
+
+//    private Score score;
 
     public String getStudentId() {
         return studentId;
