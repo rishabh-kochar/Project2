@@ -1,5 +1,6 @@
 package com.example.project2.service;
 
+import com.example.project2.dto.ProfessorRankDTO;
 import com.example.project2.entity.Department;
 import com.example.project2.entity.Professor;
 import com.example.project2.repository.DepartmentRepository;
@@ -44,10 +45,16 @@ public class ProfessorServiceImpl implements ProfessorService {
     }
 
     @Override
+    public List<String> getProfessorRank() {
+         return professorRepository.getProfessorRank();
+    }
+
+    @Override
     public List<Professor> getAllProfessor() {
         List<Professor> professorList = new ArrayList<>();
         Iterable<Professor> employeeIterable = professorRepository.findAll();
         employeeIterable.forEach(professorList::add);
         return professorList;
     }
+
 }

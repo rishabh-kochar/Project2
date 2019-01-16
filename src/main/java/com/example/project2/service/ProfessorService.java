@@ -1,5 +1,6 @@
 package com.example.project2.service;
 
+import com.example.project2.dto.ProfessorRankDTO;
 import com.example.project2.entity.Professor;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface ProfessorService {
     void updateProfessor(Professor professor);
 
     void deleteProfessor(String id);
+
+    List<String> getProfessorRank();
 }

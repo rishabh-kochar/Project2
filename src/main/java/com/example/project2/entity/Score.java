@@ -27,6 +27,7 @@ public class Score{
     @JoinColumn(name = "student")
     private Student student;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject")
     private Subject subject;

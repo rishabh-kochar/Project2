@@ -1,6 +1,7 @@
 package com.example.project2.controller;
 
 import com.example.project2.dto.ProfessorDTO;
+import com.example.project2.dto.ProfessorRankDTO;
 import com.example.project2.entity.Professor;
 import com.example.project2.service.DepartmentService;
 import com.example.project2.service.ProfessorService;
@@ -68,5 +69,14 @@ public class ProfessorController {
         }
 
         return professorDTOList;
+    }
+
+    @GetMapping("/getProfessorRank")
+    public List<String> getProfessorRank(){
+        List<String> professorRankList=professorService.getProfessorRank();
+        for (String professor:professorRankList){
+            System.out.println(professor);
+        }
+        return professorRankList;
     }
 }
