@@ -16,6 +16,7 @@ public class ScoreController {
     public Score add(@RequestBody ScoreDTO scoreDTO) {
         Score score=new Score();
         BeanUtils.copyProperties(scoreDTO,score);
+        scoreService.updatesemester(scoreDTO.getSemester(),scoreDTO.getStudentId());
         return scoreService.add(score);
     }
 

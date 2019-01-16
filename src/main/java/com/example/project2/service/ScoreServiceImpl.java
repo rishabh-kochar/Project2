@@ -37,4 +37,9 @@ public class ScoreServiceImpl implements ScoreService {
     public void delete(String id) {
         scoreRepository.delete(id);
     }
+
+    @Override
+    public void updatesemester(String semester, String studentId) {
+        scoreRepository.updateSemester(semester,studentId);
+    }
 }
