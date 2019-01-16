@@ -8,4 +8,5 @@ public interface ScoreService {
     Score select(String id);
     Score update(Score score);
     void delete(String id);
+    void updatesemester(String semester, String studentId);
 }
