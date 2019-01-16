@@ -18,16 +18,24 @@ public class StudentServiceImpl implements StudentService {
         @Autowired
         StudentRepository studentRepository;
 
+        @Autowired
+        DepartmentRepository departmentRepository;
+
         @Transactional(readOnly = false)
         @Override
         public Student add(Student student) {
-            return studentRepository.save(student);
+
+                student.setDepartment(departmentRepository.findOne(student.getDepartmentId()));
+                return studentRepository.save(student);
         }
 
         @Transactional(readOnly = false)
         @Override
         public Student select(String id) {
-            return studentRepository.findOne(id);
+
+                Student student=studentRepository.findOne(id);
+                Department department=student.getDepartment();
+                return studentRepository.findOne(id);
         }
 
         @Transactional(readOnly = false)

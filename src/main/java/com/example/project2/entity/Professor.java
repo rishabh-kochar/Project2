@@ -1,5 +1,6 @@
 package com.example.project2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,12 +15,12 @@ Developed by Chaman
 public class Professor {
 
     public static final String TABLE_NAME="professor";
-    public static final String ID_COLUMN="Id";
+    public static final String ID_COLUMN="professorId";
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid",strategy = "uuid2")
-    @Column(name = Department.ID_COLUMN)
+    @Column(name = Professor.ID_COLUMN)
     private String professorId;
     private String professorName;
     private String primaryDeptId;
@@ -28,10 +29,12 @@ public class Professor {
     @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Subject> subjectList=new ArrayList<>();
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department")
     private Department primaryDepartment;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department1")
     private Department secondaryDepartment;

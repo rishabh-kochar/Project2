@@ -1,5 +1,6 @@
 package com.example.project2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 
 
@@ -28,7 +29,7 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Score> scoreList = new ArrayList<>();
 
-
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department")
     private Department department;

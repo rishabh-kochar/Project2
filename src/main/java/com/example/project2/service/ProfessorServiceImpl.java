@@ -2,6 +2,7 @@ package com.example.project2.service;
 
 import com.example.project2.entity.Department;
 import com.example.project2.entity.Professor;
+import com.example.project2.repository.DepartmentRepository;
 import com.example.project2.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,14 @@ public class ProfessorServiceImpl implements ProfessorService {
     @Autowired
     ProfessorRepository professorRepository;
 
+
+    @Autowired
+    DepartmentRepository departmentRepository;
     @Override
     public void addProfessor(Professor professor) {
+        professor.setPrimaryDepartment(departmentRepository.findOne(professor.getPrimaryDeptId()));
+        if(professor.getSecondaryDeptId() != null)
+        professor.setSecondaryDepartment(departmentRepository.findOne(professor.getSecondaryDeptId()));
         professorRepository.save(professor);
     }
 

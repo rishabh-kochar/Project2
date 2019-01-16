@@ -2,6 +2,7 @@ package com.example.project2.controller;
 
 import com.example.project2.dto.ProfessorDTO;
 import com.example.project2.entity.Professor;
+import com.example.project2.service.DepartmentService;
 import com.example.project2.service.ProfessorService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,13 @@ import java.util.List;
 Developed by Chaman
  */
 @RestController
-@RequestMapping("/professor")
 public class ProfessorController {
 
     @Autowired
     ProfessorService professorService;
+
+    @Autowired
+    DepartmentService departmentService;
 
     @PostMapping("/addProfessor")
     public void addProfessor(@RequestBody ProfessorDTO professorDTO){
@@ -31,6 +34,9 @@ public class ProfessorController {
     public ProfessorDTO getProfessorDetails(@RequestParam String id){
         ProfessorDTO professorDTO=new ProfessorDTO();
         Professor professor=professorService.getProfessor(id);
+        professor.setPrimaryDepartment(departmentService.getDepartment(professor.getPrimaryDeptId()));
+        if(professor.getSecondaryDeptId()!=null)
+        professor.setSecondaryDepartment(departmentService.getDepartment(professor.getSecondaryDeptId()));
         BeanUtils.copyProperties(professor,professorDTO);
         return professorDTO;
     }

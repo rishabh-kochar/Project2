@@ -13,7 +13,6 @@ import java.util.List;
 Developed by Chaman
  */
 @RestController
-@RequestMapping("/department")
 public class DepartmentController  {
 
     @Autowired

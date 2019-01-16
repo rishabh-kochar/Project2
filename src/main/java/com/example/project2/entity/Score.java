@@ -1,5 +1,6 @@
 package com.example.project2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class Score{
 
 //    private List<Score> scoreList = new ArrayList<>();
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student")
     private Student student;

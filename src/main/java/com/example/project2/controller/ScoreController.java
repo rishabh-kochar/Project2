@@ -5,13 +5,14 @@ import com.example.project2.entity.Score;
 import com.example.project2.service.ScoreService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/score")
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;
+
 
     @PostMapping(value = "/addscore")
     public Score add(@RequestBody ScoreDTO scoreDTO) {
